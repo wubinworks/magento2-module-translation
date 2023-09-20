@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Wubinworks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Wubinworks\Translation\Model\TranslateInterface" type="Wubinworks\Translation\Model\Translate"/>
+    <type name="Wubinworks\Translation\Model\TranslateInterface">
+        <arguments>
+            <argument name="cache" xsi:type="object">Magento\Framework\App\Cache\Type\Translate</argument>
+            <argument name="locale" xsi:type="object">Magento\Framework\Locale\Resolver\Proxy</argument>
+            <argument name="translate" xsi:type="object">Magento\Framework\Translate\ResourceInterface\Proxy</argument>
+            <argument name="request" xsi:type="object">Magento\Framework\App\Request\Http\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Translation\Model\Js\DataProviderInterface">
+        <plugin name="wubinworks_translation_translation_js_dataprovider_plugin" type="Wubinworks\Translation\Plugin\TranslationJsDataProviderPlugin"/>
+    </type>
+    <type name="Magento\Framework\TranslateInterface">
+        <plugin name="wubinworks_translation_translate_plugin" type="Wubinworks\Translation\Plugin\TranslatePlugin"/>
+    </type>
+    <type name="Wubinworks\Translation\Plugin\TranslatePlugin">
+        <arguments>
+            <argument name="cacheType" xsi:type="string">Magento\Framework\App\Cache\Type\Translate</argument>
+            <argument name="pathList" xsi:type="array">
+                <item name="i18n" xsi:type="array">
+                    <item name="path" xsi:type="string">i18n</item>
+                    <item name="disabled" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Wubinworks\Translation\Plugin\TranslationJsDataProviderPlugin">
+        <arguments>
+            <argument name="pathList" xsi:type="array">
+                <item name="Js" xsi:type="array">
+                    <item name="path" xsi:type="string">Js</item>
+                    <item name="disabled" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+                <item name="i18n_Js" xsi:type="array">
+                    <item name="path" xsi:type="string">i18n/Js</item>
+                    <item name="disabled" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">90</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

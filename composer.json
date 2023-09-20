@@ -1,0 +1,30 @@
+{
+    "name": "wubinworks/module-translation",
+    "description": "This module [1] Adds translation data from [module or theme root]/i18n/Js/[locale].csv to frontend translation dictionary. [2] Enables Module to override Theme, Language Pack and DB translations by creating CSV file in specific location inside the Module.",
+    "require": {
+        "php": ">=7.3",
+        "magento/framework": "*",
+        "magento/magento2-base": "~2.4.0",
+        "magento/module-translation": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Wubinworks",
+            "email": "wubinworks@outlook.com",
+            "homepage": "https://github.com/wubinworks/magento2-module-translation",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Wubinworks\\Translation\\": ""
+        }
+    }
+}
