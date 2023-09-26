@@ -103,8 +103,8 @@ class TranslatePlugin
      */
     public function beforeLoadData(
         \Magento\Framework\TranslateInterface $subject,
-        $area,
-        $forceReload
+        $area = null,
+        $forceReload = false
     ): array {
         $magentoTranslateParams = $this->registry->registry('magento_translate_params');
         $magentoTranslateParams->setData('area', $area);
