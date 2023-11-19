@@ -7,7 +7,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Wubinworks\Translation\Model\TranslateInterface" type="Wubinworks\Translation\Model\Translate"/>
-    <type name="Wubinworks\Translation\Model\TranslateInterface">
+    <type name="Wubinworks\Translation\Model\Translate">
         <arguments>
             <argument name="cache" xsi:type="object">Magento\Framework\App\Cache\Type\Translate</argument>
             <argument name="locale" xsi:type="object">Magento\Framework\Locale\Resolver\Proxy</argument>
@@ -15,10 +15,10 @@
             <argument name="request" xsi:type="object">Magento\Framework\App\Request\Http\Proxy</argument>
         </arguments>
     </type>
-    <type name="Magento\Translation\Model\Js\DataProviderInterface">
+    <type name="Magento\Translation\Model\Js\DataProvider">
         <plugin name="wubinworks_translation_translation_js_dataprovider_plugin" type="Wubinworks\Translation\Plugin\TranslationJsDataProviderPlugin"/>
     </type>
-    <type name="Magento\Framework\TranslateInterface">
+    <type name="Magento\Framework\Translate">
         <plugin name="wubinworks_translation_translate_plugin" type="Wubinworks\Translation\Plugin\TranslatePlugin"/>
     </type>
     <type name="Wubinworks\Translation\Plugin\TranslatePlugin">
